@@ -59,3 +59,13 @@ Server chạy tại `http://localhost:3000`.
 | POST | `/api/student` | Thêm sinh viên mới |
 | PUT | `/api/student/:id` | Cập nhật thông tin sinh viên |
 | DELETE | `/api/student/:id` | Xóa sinh viên |
+
+### Enrollment (`/api/enrollment`)
+
+| Method | Path | Mô tả |
+|---|---|---|
+| GET | `/api/enrollment` | Lấy danh sách tất cả enrollment (có thể lọc theo `?SID=`, `?MID=`, `?ACAD_YEAR=`) |
+| GET | `/api/enrollment/:SID/:MID/:ACAD_YEAR` | Lấy thông tin enrollment theo composite key |
+| POST | `/api/enrollment` | Thêm enrollment mới (body: `SID`, `MID`, `ACAD_YEAR`) |
+| PUT | `/api/enrollment/:SID/:MID/:ACAD_YEAR` | Cập nhật enrollment |
+| DELETE | `/api/enrollment/:SID/:MID/:ACAD_YEAR` | Xóa enrollment |
