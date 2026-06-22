@@ -2,11 +2,13 @@ import express from "express";
 import "dotenv/config";
 import studentRoutes from "./routes/students";
 import enrollmentRoutes from "./routes/enrollments";
+import cookieParser from 'cookie-parser';
 
 const PORT: number = parseInt(process.env.PORT || "3000", 10);
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 // Mount CRUD routes
 app.use("/api/student", studentRoutes);
