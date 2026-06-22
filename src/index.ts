@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import studentRoutes from "./routes/students";
 import enrollmentRoutes from "./routes/enrollments";
+import authRoutes from "./routes/auth";
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 
@@ -14,12 +15,13 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'default_secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: process.env.NODE_ENV === 'products' }
+  cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 app.use(express.urlencoded({ extended: true }));
 // Mount CRUD routes
 app.use("/api/student", studentRoutes);
 app.use("/api/enrollment", enrollmentRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

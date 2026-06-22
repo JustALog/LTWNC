@@ -1,0 +1,8 @@
+-- Table for user registration (username + hashed password)
+CREATE TABLE IF NOT EXISTS USER_ACCOUNT (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL, -- bcrypt hashed password
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
